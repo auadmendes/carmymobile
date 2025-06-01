@@ -1,17 +1,40 @@
 import '../global.css';
 
-import { Stack } from 'expo-router';
+import { ClerkProvider, useAuth } from '@clerk/clerk-expo';
+import { tokenCache } from '@clerk/clerk-expo/token-cache'
 
-export const unstable_settings = {
-  // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: '(tabs)',
-};
+import { router, Slot } from 'expo-router';
+import { useEffect } from 'react';
+
+const PUBLIC_CLERK_PUBLISHABLE_KEY = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY as string;
+
+function InitialLayout() {
+  const {isSignedIn, isLoaded} = useAuth();
+  
+  useEffect(() => {
+    if (isSignedIn) {
+      router.replace('/(auth)');
+    }
+    // if (isSignedIn) {
+    //   router.replace('/(auth)');
+    // }
+  }, [isSignedIn, isLoaded]);
+
+  // if (isSignedIn) {
+  //   router.replace("/(auth)");
+  // }
+
+    return <Slot />;
+  }
 
 export default function RootLayout() {
+ 
+  
   return (
-    <Stack>
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-    </Stack>
+    <ClerkProvider tokenCache={tokenCache} publishableKey={PUBLIC_CLERK_PUBLISHABLE_KEY}>
+        <InitialLayout />
+    </ClerkProvider>
   );
 }
+
+

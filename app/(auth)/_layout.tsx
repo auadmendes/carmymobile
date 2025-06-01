@@ -32,7 +32,7 @@ export default function TabLayout() {
         tabBarActiveTintColor: '#8B5FBF',
         tabBarInactiveTintColor: 'gray',
         tabBarStyle: {
-          backgroundColor: 'black',
+          backgroundColor: '#FFF',
           borderTopWidth: 0,
           elevation: 0,
           shadowColor: 'transparent',
@@ -67,7 +67,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="chatpage"
         
         options={{
           title: 'AI Chat',

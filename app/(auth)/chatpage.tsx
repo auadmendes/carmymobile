@@ -19,7 +19,7 @@ export default function ChatPage() {
   const [sidebarVisible, setSidebarVisible] = useState(true); // sidebar state
 
   return (
-   <SafeAreaView className="flex-1 bg-white">
+   <SafeAreaView className="flex-1 bg-primary">
     
         <View className="flex-1 flex-row relative">
           {/* Sidebar */}
@@ -32,15 +32,15 @@ export default function ChatPage() {
           {/* Toggle Button */}
           <TouchableOpacity
             onPress={() => setSidebarVisible(!sidebarVisible)}
-            className="flex flex-row absolute pr-4 top-4 left-2 z-10 bg-secondary p-2 rounded-full justify-between items-center"
+            className="flex flex-row absolute pr-4 top-4 left-2 z-10 bg-white p-2 rounded-full justify-between items-center"
           >
             <Feather
               name={sidebarVisible ? 'chevron-left' : 'chevron-right'}
               size={24}
-              color="white"
+              color="#180A73"
             />
             {!sidebarVisible && (
-              <Text className="ml-2 text-white font-semibold">Chats</Text>
+              <Text className="text-text-dark font-semibold">Chats</Text>
             )}
             
           </TouchableOpacity>

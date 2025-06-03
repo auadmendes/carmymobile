@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "carmymobile",
+    "name": "carmy mobile",
     "slug": "carmymobile",
     "version": "1.0.0",
 
@@ -20,12 +20,13 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
 
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "adaptive",
 
     "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "image": "./assets/splash.svg",
+      "resizeMode": "cover",
+      "foregroundColor": "#ff9999",	
+      "backgroundColor": "#ff9999"
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
@@ -33,7 +34,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/splash4.png",
         "backgroundColor": "#ffffff"
       }
     }

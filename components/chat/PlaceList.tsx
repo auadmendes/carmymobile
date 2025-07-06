@@ -6,14 +6,16 @@ interface Props {
 }
 
 const mockChats = [
-  { id: '1', title: 'Chat 1' },
-  { id: '2', title: 'Product Advice' },
+  { id: '1', title: 'Vitória' },
+  { id: '2', title: 'Vila Velha' },
+  { id: '3', title: 'Serra' },
+  { id: '4', title: 'Cariacíca' },
 ];
 
-export default function ChatList({ selectedChatId, onSelect }: Props) {
+export default function PlaceList({ selectedChatId, onSelect }: Props) {
   return (
     <View>
-      <Text className="text-xl font-bold mb-4 mt-4 self-end text-secondary">Chats</Text>
+      <Text className="text-xl font-bold mb-4 mt-4 self-end mr-3 text-secondary">Locais</Text>
       {mockChats.map(chat => (
         <TouchableOpacity
           key={chat.id}
@@ -27,9 +29,9 @@ export default function ChatList({ selectedChatId, onSelect }: Props) {
       ))}
       <TouchableOpacity
         onPress={() => onSelect('new')}
-        className="mt-4 bg-blue-500 p-2 rounded"
+        className="mt-4 bg-secondary p-2 rounded"
       >
-        <Text className="text-white text-center">+ New Chat</Text>
+        <Text className="text-white text-center">+ Novo local</Text>
       </TouchableOpacity>
     </View>
   );

@@ -14,6 +14,7 @@ WebBrowser.maybeCompleteAuthSession();
 export default function Index() {
   const [isLoading, setIsLoading] = useState(false);
   const googleOAuth = useOAuth({ strategy: 'oauth_google' })
+  
   async function onGoogleSignIn() {
     try {
       setIsLoading(true);
@@ -46,7 +47,7 @@ export default function Index() {
     <View className="flex-1 items-center justify-center bg-white gap-4">
       <View className='flex flex-row gap-1'>
         <Wind size={64} color="#8B5FBF" />
-        <Car size={64} color="#8B5FBF" />
+        {/* <Car size={64} color="#8B5FBF" /> */}
       </View>
     </View>
   );

@@ -10,9 +10,11 @@ import {
   Platform
 } from 'react-native';
 
-import ChatList from '../../components/chat/ChatList';
+
 import ChatWindow from '../../components/chat/ChatWindow';
 import { Feather } from '@expo/vector-icons';
+import { StatusBar } from 'expo-status-bar';
+import PlaceList from '../../components/chat/PlaceList';
 
 export default function ChatPage() {
   const [selectedChatId, setSelectedChatId] = useState<string | null>(null);
@@ -25,7 +27,7 @@ export default function ChatPage() {
           {/* Sidebar */}
           {sidebarVisible && (
             <View className="w-1/3 border-r border-gray-300 p-2">
-              <ChatList selectedChatId={selectedChatId} onSelect={setSelectedChatId} />
+              <PlaceList selectedChatId={selectedChatId} onSelect={setSelectedChatId} />
             </View>
           )}
 
@@ -37,10 +39,11 @@ export default function ChatPage() {
             <Feather
               name={sidebarVisible ? 'chevron-left' : 'chevron-right'}
               size={24}
-              color="#180A73"
+              color="#8456FD"
+
             />
             {!sidebarVisible && (
-              <Text className="text-text-dark font-semibold">Chats</Text>
+              <Text className="text-secondary font-semibold">Chats</Text>
             )}
             
           </TouchableOpacity>
@@ -50,7 +53,7 @@ export default function ChatPage() {
             <ChatWindow chatId={selectedChatId} />
           </View>
         </View>
-      
+      <StatusBar style="dark" />
     </SafeAreaView>
   );
 }
